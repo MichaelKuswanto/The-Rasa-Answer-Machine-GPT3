@@ -1,7 +1,9 @@
 version: '3.1'
 intents:
 - affirm
+- ask_author
 - ask_book_from_synopsis
+- ask_genre
 - ask_synopsis
 - bot_challenge
 - deny
@@ -34,15 +36,20 @@ responses:
   - text: The book you're referring to is titled "{book_title}".
   utter_ask_another_question:
   - text: Do you have another question?
+  utter_provide_genre:
+  - text: The genre of "{book_title}" is {genre}.
+  utter_provide_author:
+  - text: The author of "{book_title}" is {author}.
 actions:
+- utter_provide_author
 - action_provide_synopsis
-- utter_greet
+- action_provide_genre
 - utter_ask_another_question
 - utter_goodbye
+- utter_greet
+- action_provide_author
 - action_provide_book_title
 - action_provide_book_info
-- utter_did_that_help
-- utter_iamabot
 - action_ask_book_title
 - action_ask_synopsis
 - action_gpt3_fallback
@@ -52,3 +59,5 @@ session_config:
 entities:
 - book_title
 - synopsis
+- author
+- genre

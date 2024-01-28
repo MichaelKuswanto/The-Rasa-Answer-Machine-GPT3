@@ -17,6 +17,22 @@ stories:
   - action: action_provide_book_title
   - action: utter_ask_another_question
 
+- story: Ask for book genre
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_genre
+  - action: action_provide_genre
+  - action: utter_ask_another_question
+
+- story: Ask for book author
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_author
+  - action: action_provide_author
+  - action: utter_ask_another_question
+
 # - story: happy path - get synopsis
 #   steps:
 #   - intent: greet
@@ -175,3 +191,34 @@ stories:
   - action: utter_ask_another_question
   - intent: goodbye
   - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_author
+    entities:
+    - FAC: Perahu Kertas
+    - book_title: Perahu Kertas
+  - action: utter_provide_author
+  - action: utter_ask_another_question
+  - intent: ask_synopsis
+    entities:
+    - FAC: Perahu Kertas
+    - book_title: Perahu Kertas
+  - action: action_provide_synopsis
+  - action: utter_ask_another_question
+  - intent: deny
+  - intent: ask_genre
+    entities:
+    - PERSON: Steve Jobs
+    - book_title: Steve Jobs
+  - action: action_provide_genre
+  - intent: goodbye
+  - action: utter_goodbye
+  - intent: ask_author
+    entities:
+    - PERSON: Perahu Kertas
+    - book_title: Perahu Kertas
+  - action: action_provide_author
+  - intent: goodbye
