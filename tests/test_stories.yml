@@ -1,50 +1,41 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
 stories:
-- story: greet, ask for book synopsis, and express happiness
+- story: happy path 1
   steps:
   - user: |
       hello there!
     intent: greet
   - action: utter_greet
   - user: |
-      Can you tell me about "The Great Book"?
-    intent: ask_synopsis
-  - action: action_ask_book_title
-  - user: |
-      The Great Book
-    intent: provide_book_title
-  - action: action_provide_synopsis
-  - user: |
-      That sounds amazing!
+      amazing
     intent: mood_great
   - action: utter_happy
 
-- story: greet, provide book synopsis, express happiness, and say goodbye
+- story: happy path 2
   steps:
   - user: |
       hello there!
     intent: greet
   - action: utter_greet
   - user: |
-      What is the story of "The Amazing Book"?
-    intent: ask_book_from_synopsis
-  - action: action_ask_synopsis
+      amazing
+    intent: mood_great
+  - action: utter_happy
   - user: |
-      It's a fantastic adventure filled with mysteries and excitement.
-    intent: provide_synopsis
-  - action: action_provide_book_title
-  - user: |
-      Amazing! Bye-bye!
+      bye-bye!
     intent: goodbye
   - action: utter_goodbye
 
-- story: greet, express unhappiness, cheer up, confirm, and be happy
+- story: sad path 1
   steps:
   - user: |
       hello
     intent: greet
   - action: utter_greet
   - user: |
-      I'm not feeling good.
+      not good
     intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
@@ -53,14 +44,14 @@ stories:
     intent: affirm
   - action: utter_happy
 
-- story: greet, express unhappiness, cheer up, deny, and say goodbye
+- story: sad path 2
   steps:
   - user: |
       hello
     intent: greet
   - action: utter_greet
   - user: |
-      I'm feeling down.
+      not good
     intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
@@ -69,14 +60,14 @@ stories:
     intent: deny
   - action: utter_goodbye
 
-- story: greet, express extreme unhappiness, cheer up, deny, and say goodbye
+- story: sad path 3
   steps:
   - user: |
       hi
     intent: greet
   - action: utter_greet
   - user: |
-      My day is terrible.
+      very terrible
     intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
@@ -92,10 +83,9 @@ stories:
     intent: goodbye
   - action: utter_goodbye
 
-- story: bot challenge - ask if the bot is a bot
+- story: bot challenge
   steps:
   - user: |
       are you a bot?
     intent: bot_challenge
   - action: utter_iamabot
-

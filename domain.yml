@@ -9,8 +9,6 @@ intents:
 - greet
 - mood_great
 - mood_unhappy
-- provide_book_title
-- provide_synopsis
 - provide_unknown_book_title
 - provide_unknown_synopsis
 responses:
@@ -37,17 +35,20 @@ responses:
   utter_ask_another_question:
   - text: Do you have another question?
 actions:
-- action_provide_book_info
-- utter_ask_another_question
+- action_provide_synopsis
 - utter_greet
+- utter_ask_another_question
+- utter_goodbye
+- action_provide_book_title
+- action_provide_book_info
 - utter_did_that_help
 - utter_iamabot
 - action_ask_book_title
-- action_provide_synopsis
 - action_ask_synopsis
-- action_provide_book_title
-- utter_goodbye
 - action_gpt3_fallback
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+entities:
+- book_title
+- synopsis

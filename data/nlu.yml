@@ -29,6 +29,7 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - Goodbye
 - intent: affirm
   examples: |
     - yes
@@ -90,18 +91,25 @@ nlu:
     - what are you doing
 - intent: ask_synopsis
   examples: |
-    - What is the synopsis of "{book_title}"?
-    - Can you tell me about "{book_title}"?
-    - Provide the synopsis for "{book_title}".
-    - What's the story of "{book_title}"?
-    - Tell me about the book "{book_title}".
+    - What is the synopsis of [](book_title)?
+    - Can you tell me about [](book_title)?
+    - Provide the synopsis for [](book_title).
+    - What's the story of [](book_title)?
+    - Tell me about the book [](book_title).
+    - What is the synopsis of [Steve Jobs](book_title)?
+    - what is the synopsis of [Aksi Massa](book_title)
+    - What is the synopsis of [Sewu Dino](book_title)?
+    - Can you tell me about [Steve Jobs](book_title)?
+    - Can you give me the synopsis of [Habis Gelap Terbitlah Terang](book_title)?
+    - What is the synopsis of [Harry Potter And The Chamber Of Secrets](book_title)?
+    - Tell me the synopsis of [Harry Potter and The Chamber Of Secrets](book_title)
 - intent: ask_book_from_synopsis
   examples: |
-    - Which book has the following synopsis: "{synopsis}"?
-    - Find the book with the synopsis: "{synopsis}".
-    - Identify the book from the given synopsis: "{synopsis}".
-    - What book is described by this synopsis: "{synopsis}"?
-    - What is the Synopsis of Steve Jobs?
+    - Which book has the following synopsis: [](synopsis)?
+    - Find the book with the synopsis: [](synopsis).
+    - Identify the book from the given synopsis: [](synopsis).
+    - What book is described by this synopsis: [](synopsis)?
+    - Which book has the following synopsis: [Harry started his third year at hogward on less than pleasant note.](synopsis)
 - intent: provide_unknown_book_title
   examples: |
     - I don't know the title.
